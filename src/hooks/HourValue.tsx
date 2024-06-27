@@ -8,7 +8,6 @@ import {
     DialogFooter,
     DialogClose
 } from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -30,7 +29,7 @@ function HourValue() {
        
             <Dialog >
                 <DialogTrigger asChild>
-                    <Button variant="outline" className="margin">ganho à hora: {paymentHour}RS$</Button>
+                    <Button variant="outline" className="w-full ">ganho à hora: {paymentHour}RS$</Button>
                 </DialogTrigger>
 
 
@@ -58,7 +57,7 @@ function HourValue() {
                         <DialogClose asChild>
                             <Button onClick={()=>{setPayment(paymentHour)
                                            location.href = location.href;}
-                            }>Save changes</Button>
+                            }>Salvar</Button>
                         </DialogClose>
 
                     </DialogFooter>

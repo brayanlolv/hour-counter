@@ -32,7 +32,7 @@ function SetHourBtn({date,hourp,onSet,key}:{date:propSetHour,hourp:number,onSet:
     <>
   
     <Dialog >
-        <DialogTrigger asChild>
+        <DialogTrigger asChild >
             <Button variant="outline" className="margin">{hour}Hrs</Button>
         </DialogTrigger>
 

@@ -13,15 +13,12 @@ function App() {
   return (
     <div className="h-screen flex flex-col items-center  max-w-screen-sm mx-auto gap-4 mt-5">
 
-    {/* <Semester/> */}
-    {/* <HourValue/> */}
+
     
     <TopBar/>
 
     <UseMainCard />
 
-    fazendo o componente com todos os meses
-      
    
     
     

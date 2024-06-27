@@ -1,34 +1,36 @@
 import { weekDays } from "@/utils/names"
-import { getDataHour,getPayment } from "@/utils/setData"
+import { getDataHour, getPayment } from "@/utils/setData"
 import SetHourBtn from "@/components/SetHourBtn"
 import { loopDay } from "@/utils/actualDate"// import { getDate } from "@/utils/actualDate"
 
+import { Separator } from "@/components/ui/separator"
 import { ScrollArea } from "@radix-ui/react-scroll-area"
 import { Children, useState } from "react"
-interface propLista{
-    date:number,
-    month:number,
-    year:number,
-    day:number,
-    allMonth:boolean
+import Semester from "./Semester"
+interface propLista {
+    date: number,
+    month: number,
+    year: number,
+    day: number,
+    allMonth: boolean
 
 
 }
 
-interface propLi{
-    date:number,
-    month:number,
-    year:number,
-    day:number,
-    hour:number
+interface propLi {
+    date: number,
+    month: number,
+    year: number,
+    day: number,
+    hour: number
 }
 
 
 // MainCard         setMonth its right now here
 
-       //List
+//List
 
-              //li  it needs be called here
+//li  it needs be called here
 
 // one is inside of the other
 
@@ -39,87 +41,108 @@ interface propLi{
 
 const price_hour = getPayment()
 
-function Li({prop,children}:{prop:propLi,children:any}){
+function Li({ prop, children }: { prop: propLi, children: any }) {
 
-    return(
+    return (
         <div className="flex justify-between w-11/12 m">
             <div>
-                dia {prop.date + 1}, {weekDays[prop.day]} {/*<SetHourBtn date={prop} hourp={hourp}/>*/ }
+                dia {prop.date + 1}, {weekDays[prop.day]} {/*<SetHourBtn date={prop} hourp={hourp}/>*/}
             </div>
-        <div>
-                {children}  { price_hour * prop.hour} RS$
-        </div>
-            
+            <div>
+                {children}  {price_hour * prop.hour} RS$
+            </div>
+
         </div>
     )
 }
 
 
-function Lista({prop,monthHistory,setMonth}:{prop:propLista,monthHistory:number[],setMonth:Function}){
-    
+function Lista({ prop, monthHistory, setMonth }: { prop: propLista, monthHistory: number[], setMonth: Function }) {
+
     const liArray = []
     // const [hours,setHours] = useState( getDataHour(prop.month,prop.year))
     // const hours:number[] = getDataHour(prop.month,prop.year)
 
-    let day:number = prop.day
-        let stop = prop.date-5
-        if(prop.allMonth){
-            stop = -1 
+    let day: number = prop.day
+    let stop = prop.date - 5
+    if (prop.allMonth) {
+        stop = -1
+    }
+
+    for (let i = prop.date; i > stop && i > -1; i--) {
+
+        let hour: number = 0
+        if (monthHistory[i] != null) {
+            hour = monthHistory[i]
         }
 
-        for(let i = prop.date;i >stop && i >-1 ;i-- ){
+        const paramli: propLi = {
+            date: i,
+            day: day,
+            hour: hour,
+            month: prop.month,
+            year: prop.year
 
-            let hour:number = 0
-            if(monthHistory[i]!= null){
-                hour = monthHistory[i]
-            }
-    
-            const paramli :propLi = {
-                date:i,
-                day:day,
-                hour:hour,
-                month:prop.month,
-                year:prop.year
-    
-            }
-            liArray.push(
-                // <Li key={i} hourp={hours[i]} prop={paramli}/>
-                <Li  key={i} prop={paramli}>
-                        <SetHourBtn key={i} date={paramli} hourp={monthHistory[i]}
-                        onSet={setMonth}                   
-                           />
-                </Li>
-
-            )
-
-            day = loopDay(day)
         }
-    
+        liArray.push(
+            // <Li key={i} hourp={hours[i]} prop={paramli}/>
+            <Li key={i} prop={paramli}>
+                <SetHourBtn key={i} date={paramli} hourp={monthHistory[i]}
+                    onSet={setMonth}
+                />
+            </Li>
 
-   
+        )
 
-    return(
-        <div>
-                {/* <p className='color-blue bg-cyan-500'>teste</p> */}
-        {/* <Li prop={{date:prop.date,day:prop.day}}></Li>
-        <Li prop={{date:prop.date,day:prop.day}}></Li>
-        <Li prop={{date:prop.date,day:prop.day}}></Li> */}
-      
-        {liArray}
-        {/* <ScrollArea className="h-[200px] w-[600px] rounded-md border">
-                {liArray.map((dayCard,i) => (
+        day = loopDay(day)
+    }
+
+
+    const tags: any[] = Array.from({ length: 100 }).map(
+        (_, i, a) => `v1.2.0-beta.${a.length - i}`
+    )
+
+    if (prop.allMonth) {
+        return (
+            <div className="h-[80vh]" >
+
+
+          <ScrollArea className="h-full w-[350px] mx-auto  overflow-y-auto      p-4">
+
+          {liArray.map((element,i) => (
                     <>
-                        <div key={i} >
-                            {dayCard}
-                        </div>
+                            {element}
+                            <Separator className="my-2" />
                        
                     </>
                 ))}
-            </ScrollArea> */}
-     
+
+
+                        {/* {tags.map((tag) => (
+                            <>
+                                <div key={tag} className="text-sm">
+                                    {tag}
+                                    <Separator className="my-2" />
+                                </div>
+                               
+                            </>
+                        ))} */}
+                
+                </ScrollArea> 
+
+
+            </div>
+        )
+    }
+
+
+
+    return (
+        <div>
+            {liArray}
         </div>
-      
+
     )
 }
 
-export  default Lista
+export default Lista

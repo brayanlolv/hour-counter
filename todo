@@ -1,23 +1,37 @@
-
 deixar responsivo
+    verificar o quao facil esta sair dos modals em telas mais estreitas ok
+
+    verficicar porq o mainCard esta menor dentro do modal do Semester
+
 
 
 estiizar entrada de horas
     fazer com que o padrao do que ainda no foi inputado seja 0
     fazer comecando da direita minutos para esquerda horass
 
+
 organizar as interfaces
 
 
-fazer top baar
-
-por um espaco no top e no chao para o modal
 
 
-por um scroll nos dias do mes
 
 
-mudar os botes de salvar    
+pesquisar o q é  overflow-y-auto "tailwind class" que resolveu o bug do scroll dentro do modal
+
+
+
+
+
+fazer top baar ok
+
+por um espaco no top e no chao para o modal ok
+
+
+por um scroll nos dias do mes ok
+
+
+mudar os botes de salvar    ok
 
 ////////////////
 

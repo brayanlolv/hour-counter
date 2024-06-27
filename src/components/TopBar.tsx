@@ -10,7 +10,7 @@ import {
 
 function TopBar(){
     return(
-    <div className=" flex  justify-between  w-10/12 ">
+    <div className=" flex flex-col gap-1 w-10/12 sm:flex-row sm:justify-between  ">
         
         <div>
         <HourValue/>
