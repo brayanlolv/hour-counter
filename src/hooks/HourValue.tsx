@@ -24,11 +24,13 @@ function HourValue() {
     const [paymentHour,setPaymentHour] = useState(getPayment());
 
     return (
-        <> 
-            valor hora :
+        <>  
+            
+            
+       
             <Dialog >
                 <DialogTrigger asChild>
-                    <Button variant="outline" className="margin">{paymentHour}RS$</Button>
+                    <Button variant="outline" className="margin">ganho à hora: {paymentHour}RS$</Button>
                 </DialogTrigger>
 
 

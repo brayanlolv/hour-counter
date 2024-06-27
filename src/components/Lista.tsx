@@ -42,10 +42,15 @@ const price_hour = getPayment()
 function Li({prop,children}:{prop:propLi,children:any}){
 
     return(
-        <>lista item
-        {prop.date + 1} {weekDays[prop.day]} {/*<SetHourBtn date={prop} hourp={hourp}/>*/ }{children}  { price_hour * prop.hour} RS$
-        <br/>
-        </>
+        <div className="flex justify-between w-11/12 m">
+            <div>
+                dia {prop.date + 1}, {weekDays[prop.day]} {/*<SetHourBtn date={prop} hourp={hourp}/>*/ }
+            </div>
+        <div>
+                {children}  { price_hour * prop.hour} RS$
+        </div>
+            
+        </div>
     )
 }
 

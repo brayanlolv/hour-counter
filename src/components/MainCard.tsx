@@ -59,11 +59,11 @@ function MainCard({data}:{data:propMainCard} ) {
 
 
     return (
-        <div className="w-[550px]">
+        <div className="w-10/12 mx-auto">
 
             <Card >
                 <CardHeader >
-                <div className="flex justify-between "   >
+                <div className="flex justify-between w-11/12     "   >
                     <div>
                         <CardTitle>{months[data.month]}</CardTitle>
                         <h1>{ data.year}</h1>

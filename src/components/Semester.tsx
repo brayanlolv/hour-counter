@@ -56,7 +56,7 @@ function getSemester():any[]{
         }
         console.log(prop)
 
-        semester.push(<MainCard data={prop} />)
+        semester.push(<MainCard data={prop}  />)
         decrementDate()
         }
         [day, month, year, day_week] = getDate()
@@ -77,16 +77,15 @@ function Semester() {
 
     return (
         // <ScrollArea>
-        <div className="bg-white w-[600px]">
-            {/* {semester} */}
+        <div className=" w-full ">
+        
 
 
 
-
-            <ScrollArea className="h-screen my-2 w-[600px]rounded-md border p">
+            <ScrollArea className="h-screen w-full ">
                 {semester.map((monthCard,i) => (
                     <>
-                        <div key={i} className="text-sm">
+                        <div key={i} className="py-2">
                             {monthCard}
                         </div>
                        

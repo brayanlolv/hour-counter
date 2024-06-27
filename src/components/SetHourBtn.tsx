@@ -67,13 +67,13 @@ function SetHourBtn({date,hourp,onSet,key}:{date:propSetHour,hourp:number,onSet:
             <DialogFooter>
                 <DialogClose asChild>
                     <Button onClick={()=>{
-                        console.log("salvou a hora "+ date.date)
+                        // console.log("salvou a hora "+ date.date)
                         
                         setDataHour(date.date,date.month,date.year,hour)
                         onSet(hour,date.date)
                         // location.href = location.href;
                     }
-                        } >Save changes</Button>
+                        } >Salvar</Button>
                 </DialogClose>
 
             </DialogFooter>

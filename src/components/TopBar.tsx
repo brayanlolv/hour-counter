@@ -5,18 +5,16 @@ import HourValue from "@/hooks/HourValue";
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
     DialogTrigger,
-    DialogFooter,
-    DialogClose
 } from "@/components/ui/dialog"
 
 function TopBar(){
     return(
-    <div>
+    <div className=" flex  justify-between  w-10/12 ">
+        
+        <div>
         <HourValue/>
+        </div>
 
 
         <Dialog >
@@ -25,10 +23,13 @@ function TopBar(){
         </DialogTrigger>
 
     {/* depois posso adcionar title, description e footer */}
-        <DialogContent >
-            <Semester/>
+        <DialogContent className=" w-screen my-4 max-w-screen-sm flex justify-start" >
+            <Semester />
+
+            
         </DialogContent>
 
+       
 
     </Dialog>
 
