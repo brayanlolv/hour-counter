@@ -2,8 +2,6 @@
 //as data serao guardas como mes(formato numerico)_ano
 //exemplo 0_2024   janeiro de 2024
 
-import { getDate } from "./actualDate";
-
 //por um so para arrumar o do dia
 
 function getDataHour(month:number,year:number):number[]{

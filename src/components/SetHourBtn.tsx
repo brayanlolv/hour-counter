@@ -23,7 +23,7 @@ interface propSetHour{
     hour:number
 }
 
-function SetHourBtn({date,hourp,onSet,key}:{date:propSetHour,hourp:number,onSet:Function,key:number}){
+function SetHourBtn({date,onSet}:{date:propSetHour,onSet:Function}){
     
     const[hour,setHour] = useState(date.hour);//por a funcao que usa o coisa
 

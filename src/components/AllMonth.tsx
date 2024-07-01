@@ -3,23 +3,13 @@ import { Button } from "./ui/button"
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-    DialogFooter,
-    DialogClose,
-    DialogOverlay
 } from "@/components/ui/dialog"
 
 
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover"
 
-import { ScrollArea } from "@radix-ui/react-scroll-area"
 
 interface propLista {
     date: number,

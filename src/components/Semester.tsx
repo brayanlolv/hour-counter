@@ -7,7 +7,8 @@ import { arraySum } from "@/utils/math";
 import { ScrollArea } from "@/components/ui/scroll-area"
 
 
-let [day, month, year, day_week] = getDate()
+let [month, year] = [getDate()[1],getDate()[2]]
+
 const hourValue = getPayment()
 
 
@@ -48,7 +49,7 @@ function getSemester():any[]{
         const prop = {
             month: month,
             year: year ,//faltando o ano !!!!
-            day: prop_date.getDay(),
+            day: prop_date.getDay() -1,
             date: last_day,
             totalHours: total_hours_month,
             payment: hourValue 
@@ -59,7 +60,7 @@ function getSemester():any[]{
         semester.push(<MainCard data={prop}  />)
         decrementDate()
         }
-        [day, month, year, day_week] = getDate()
+        [month, year] = [getDate()[1],getDate()[2]]
         return semester
 }
 

@@ -1,12 +1,11 @@
 import { weekDays } from "@/utils/names"
-import { getDataHour, getPayment } from "@/utils/setData"
+import { getPayment } from "@/utils/setData"
 import SetHourBtn from "@/components/SetHourBtn"
 import { loopDay } from "@/utils/actualDate"// import { getDate } from "@/utils/actualDate"
 
 import { Separator } from "@/components/ui/separator"
 import { ScrollArea } from "@radix-ui/react-scroll-area"
-import { Children, useState } from "react"
-import Semester from "./Semester"
+
 interface propLista {
     date: number,
     month: number,
@@ -87,7 +86,7 @@ function Lista({ prop, monthHistory, setMonth }: { prop: propLista, monthHistory
         liArray.push(
             // <Li key={i} hourp={hours[i]} prop={paramli}/>
             <Li key={i} prop={paramli}>
-                <SetHourBtn key={i} date={paramli} hourp={monthHistory[i]}
+                <SetHourBtn  date={paramli} 
                     onSet={setMonth}
                 />
             </Li>
@@ -98,9 +97,7 @@ function Lista({ prop, monthHistory, setMonth }: { prop: propLista, monthHistory
     }
 
 
-    const tags: any[] = Array.from({ length: 100 }).map(
-        (_, i, a) => `v1.2.0-beta.${a.length - i}`
-    )
+
 
     if (prop.allMonth) {
         return (
@@ -109,7 +106,7 @@ function Lista({ prop, monthHistory, setMonth }: { prop: propLista, monthHistory
 
           <ScrollArea className="h-full w-[350px] mx-auto  overflow-y-auto      p-4">
 
-          {liArray.map((element,i) => (
+          {liArray.map((element) => (
                     <>
                             {element}
                             <Separator className="my-2" />
@@ -118,16 +115,6 @@ function Lista({ prop, monthHistory, setMonth }: { prop: propLista, monthHistory
                 ))}
 
 
-                        {/* {tags.map((tag) => (
-                            <>
-                                <div key={tag} className="text-sm">
-                                    {tag}
-                                    <Separator className="my-2" />
-                                </div>
-                               
-                            </>
-                        ))} */}
-                
                 </ScrollArea> 
 
 

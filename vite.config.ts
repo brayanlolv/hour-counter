@@ -11,6 +11,7 @@ import path from "path"
 import { defineConfig } from "vite"
  
 export default defineConfig({
+  base: "/hour-counter",
   plugins: [react()],
   resolve: {
     alias: {
