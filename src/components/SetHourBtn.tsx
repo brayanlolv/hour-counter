@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 // import {} from "@/utils/setData"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { setDataHour } from "@/utils/setData"
 
 
@@ -23,8 +23,18 @@ interface propSetHour{
     hour:number
 }
 
+import TimerInput from "./TimerInput"
+
 function SetHourBtn({date,onSet}:{date:propSetHour,onSet:Function}){
-    
+
+    const submit = useRef<HTMLDialogElement>();
+
+    function submited(){
+        setDataHour(date.date,date.month,date.year,hour)
+        onSet(hour,date.date)
+    }
+
+
     const[hour,setHour] = useState(date.hour);//por a funcao que usa o coisa
 
 
@@ -36,7 +46,12 @@ function SetHourBtn({date,onSet}:{date:propSetHour,onSet:Function}){
             <Button variant="outline" className="margin">{hour}Hrs</Button>
         </DialogTrigger>
 
-        <DialogContent className='bg-white'>
+        <DialogContent className='bg-white' onKeyDown={(e)=>{
+            if(e.key==="Enter"){
+                submited()
+                submit.current?.click()
+            }
+        }}>
             <DialogHeader>
                 <DialogTitle>Informe o tempo de hora extra feito no dia</DialogTitle>
                 <DialogDescription>
@@ -47,6 +62,16 @@ function SetHourBtn({date,onSet}:{date:propSetHour,onSet:Function}){
             {/* <Label htmlFor="name" className="text-right">
                 Name
             </Label> */}
+            <TimerInput setValues={(args:string)=>{
+                        const [hourIpt,minIpt] : number[]= args.split(":").map((x)=>parseFloat(x))
+                        setHour(
+                            parseFloat(
+                                (hourIpt  + (minIpt / 60)).toFixed(2)
+                            )
+                        )
+            }} />
+
+{/*             
             <Input onChange={(e)=>{
                 const [hourIpt,minIpt] : number[]= e.target.value.split(":").map((x)=>parseFloat(x))    
                 setHour(
@@ -55,25 +80,18 @@ function SetHourBtn({date,onSet}:{date:propSetHour,onSet:Function}){
                     )
                 )
                 
-            }}
+            }} 
                 id="paymentvalue"
                 defaultValue={date.hour}
                 type="time"
                 // type="submit"
                 className="col-span-3"
-            />
+            />*/}
 
 
             <DialogFooter>
-                <DialogClose asChild>
-                    <Button onClick={()=>{
-                        // console.log("salvou a hora "+ date.date)
-                        
-                        setDataHour(date.date,date.month,date.year,hour)
-                        onSet(hour,date.date)
-                        // location.href = location.href;
-                    }
-                        } >Salvar</Button>
+                <DialogClose asChild  >
+                    <Button  ref={submit} onClick={submited} >Salvar</Button>
                 </DialogClose>
 
             </DialogFooter>

@@ -1,9 +1,9 @@
-
+import TimerInput from "./components/TimerInput"
 
 import "@/app/globals.css"
 // import "./teste.css"
 // import "./output.css"
-
+import {useState} from "react"
 import TopBar from './components/TopBar'
 // import Semester from './components/Semester'
 // import HourValue from './hooks/HourValue'
@@ -19,7 +19,6 @@ function App() {
 
     <UseMainCard />
 
-   
     
     
     </div>
