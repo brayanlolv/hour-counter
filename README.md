@@ -1,4 +1,4 @@
-## Contardor de horas
+## Contador de horas
 
 projeto feito com intuito de familiarização com o typescript num projeto react 
 
